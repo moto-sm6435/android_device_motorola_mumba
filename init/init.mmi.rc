@@ -405,6 +405,8 @@ service vendor.batt_health /vendor/bin/batt_health
     disabled
 
 on property:sys.boot_completed=1
+    setprop vendor.boot_completed ${sys.boot_completed}
+
     # Change batt_info sys node permission for batt_health
     chown root system /proc/config/batt_firstusagedate
     wait /sys/class/power_supply/battery/manufacturing_date 0.3
