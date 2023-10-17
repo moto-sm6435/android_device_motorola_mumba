@@ -362,6 +362,11 @@ on boot
    chown system system /sys/class/capsense/reset
    chown system system /sys/class/capsense/int_state
 
+on late-fs-charger
+    class_start early_hal
+    mount_all /vendor/etc/fstab.qcom --late
+    # Boot time fs tune
+    write /sys/block/dm-9/queue/read_ahead_kb 2048
 
 service vendor.mmi-block-perm /vendor/bin/init.mmi.block_perm.sh
     class main
@@ -399,7 +404,7 @@ on charger
     trigger early-fs
     trigger fs
     trigger post-fs
-    trigger late-fs
+    trigger late-fs-charger
     trigger post-fs-data
     trigger moto-charger
     trigger tks-charger
