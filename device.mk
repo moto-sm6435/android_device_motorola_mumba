@@ -227,7 +227,8 @@ PRODUCT_PACKAGES += \
     FrameworksResMumba \
     LineageSystemUIMumba \
     SettingsResMumba \
-    TelephonyResMumba
+    TelephonyResMumba \
+    DeviceAsWebcamResMumba
 
 PRODUCT_PACKAGES += \
     NcmTetheringOverlay
