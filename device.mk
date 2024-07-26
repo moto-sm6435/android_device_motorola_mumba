@@ -288,6 +288,11 @@ PRODUCT_COPY_FILES += \
 BOARD_SHIPPING_API_LEVEL := 202404
 PRODUCT_SHIPPING_API_LEVEL := 36
 
+# QSPA
+PRODUCT_PACKAGES += \
+    vendor.qti.qspa-service \
+    qspa_vendor.rc
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal \
