@@ -5,6 +5,9 @@
 
 PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
 
+# Dalvik
+$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
+
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
 
