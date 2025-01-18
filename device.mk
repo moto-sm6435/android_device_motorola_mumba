@@ -211,6 +211,9 @@ PRODUCT_PACKAGES += \
     MotoCommonOverlay
 
 # Overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
