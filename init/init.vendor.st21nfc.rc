@@ -20,20 +20,34 @@ on property:ro.boot.revision=dvt1 && property:ro.boot.device=mona
 on property:ro.boot.revision=dvt1 && property:ro.boot.device=monai
    setprop persist.vendor.nfc.config_hal_name "libnfc-hal-st-dvt1.conf"
 
-on property:ro.vendor.hw.nfc=true && property:persist.vendor.radio.multisim.config=*
-	start vendor.stflashtool
+property:ro.vendor.hw.nfc=ese_st
+    start gto_secure_element_aidl_service
 
-on property:ro.vendor.hw.nfc=st && property:persist.vendor.radio.multisim.config=*
-	start vendor.stflashtool
+service gto_secure_element_aidl_service /vendor/bin/hw/android.hardware.secure_element-service.thales
+    override
+    class hal
+    user secure_element
+    group secure_element nfc
+    disabled
 
-on property:ro.vendor.hw.nfc=ese_st && property:persist.vendor.radio.multisim.config=*
-	start vendor.stflashtool
+on property:ro.vendor.hw.nfc=true
+	start vendor.st_nfc_hal_service
 
-on property:ro.vendor.hw.nfc=esim_st && property:persist.vendor.radio.multisim.config=*
-	start vendor.stflashtool
+on property:ro.vendor.hw.nfc=st
+	setprop persist.vendor.nfc.config_file_name libnfc-hal-st.conf
+	start vendor.st_nfc_hal_service
 
-service vendor.stflashtool /vendor/bin/STFlashTool -c /vendor/etc/st21nfc_conf.txt -P vendor.nfc.fw_status
-	group nfc
+on property:ro.vendor.hw.nfc=ese_st
+	setprop persist.vendor.nfc.config_file_name libnfc-hal-st54j.conf
+	start vendor.st_nfc_hal_service
+
+on property:ro.vendor.hw.nfc=esim_st
+	setprop persist.vendor.nfc.config_file_name libnfc-hal-st54uicc.conf
+	start vendor.st_nfc_hal_service
+
+service vendor.st_nfc_hal_service /vendor/bin/hw/android.hardware.nfc-service.st
+	override
+	class hal
 	user nfc
-	oneshot
+	group nfc
 	disabled
