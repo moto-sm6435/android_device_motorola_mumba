@@ -377,6 +377,7 @@ service vendor.pstore_annotate /vendor/bin/pstore_annotate.sh build
 service vendor.apanic_copy /vendor/bin/apanic_copy.sh
     class late_start
     group log
+    user system
     oneshot
     disabled
 
@@ -390,6 +391,7 @@ service vendor.mmi_watchdogd /vendor/bin/mmi_watchdogd
 service vendor.bl_logs_copy /vendor/bin/apanic_copy.sh -i
     class late_start
     group log
+    user system
     oneshot
     disabled
 
@@ -412,6 +414,7 @@ on tks-charger && property:persist.sys.tksautoboot=1
 service vendor.apanic_annotate /vendor/bin/apanic_save.sh build
     class late_start
     group log
+    user system
     oneshot
     disabled
 
@@ -482,6 +485,7 @@ on property:persist.vendor.log.aplogd.enable=0
 
 service vendor.aplogd /vendor/bin/aplogd
     class late_start
+    user system
     #user log
     #group log system sdcard_rw sdcard_r media_rw mount
     # The user and group definitions above are intentionally disabled and left
@@ -661,6 +665,7 @@ service vendor.thermal-com /vendor/bin/thermal-engine-v2 --minimode
 service bugreport /system/bin/dumpstate -d -p -B -z \
         -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
     class main
+    user system
     disabled
     oneshot
     keycodes 114 115 116

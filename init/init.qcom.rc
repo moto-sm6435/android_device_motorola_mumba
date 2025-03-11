@@ -466,6 +466,7 @@ on property:persist.vendor.qcomsysd.enabled=0
 
 service vendor.ssr_setup /system/vendor/bin/ssr_setup
     oneshot
+    user system
     disabled
 
 service vendor.ss_ramdump /system/vendor/bin/subsystem_ramdump
@@ -591,6 +592,7 @@ service vendor.wigig_supplicant /vendor/bin/hw/wpa_supplicant \
     #   group wifi inet keystore
     class main
     socket wigig/wpa_wigig0 dgram 660 wifi wifi
+    user system
     disabled
     oneshot
 
@@ -623,41 +625,49 @@ service vendor.sensingdaemon /vendor/bin/sensingdaemon
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKLG
     class late_start
+    user system
     disabled
     oneshot
 
 service dhcpcd_bond0 /system/bin/dhcpcd -ABKLG
     class late_start
+    user system
     disabled
     oneshot
 
 service dhcpcd_p2p /system/bin/dhcpcd -ABKLG
     class late_start
+    user system
     disabled
     oneshot
 
 service dhcpcd_wigig0 /system/bin/dhcpcd -ABKLG
     class late_start
+    user system
     disabled
     oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
     class late_start
+    user system
     disabled
     oneshot
 
 service iprenew_bond0 /system/bin/dhcpcd -n
     class late_start
+    user system
     disabled
     oneshot
 
 service iprenew_p2p /system/bin/dhcpcd -n
     class late_start
+    user system
     disabled
     oneshot
 
 service iprenew_wigig0 /system/bin/dhcpcd -n
     class late_start
+    user system
     disabled
     oneshot
 
@@ -696,11 +706,13 @@ on property:sys.shutdown.requested=*
 
 service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     class late_start
+    user system
     disabled
     oneshot
 
 service iprenew_bt-pan /system/bin/dhcpcd -n
     class late_start
+    user system
     disabled
     oneshot
 
@@ -744,6 +756,7 @@ service qti-testscripts /system/bin/sh /product/etc/init.qcom.testscripts.sh
 service wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
     class late_start
     group wifi inet
+    user system
     disabled
     oneshot
 
@@ -833,6 +846,7 @@ service vendor.ssr_diag /system/vendor/bin/ssr_diag
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
     class main
+    user system
     disabled
 on property:persist.sys.qlogd=1
     start qlogd
@@ -919,6 +933,7 @@ on property:ro.vendor.radio.noril=*
 
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
+    user system
     group system
     disabled
     oneshot

@@ -163,6 +163,8 @@ service vendor.per_proxy /vendor/bin/pm-proxy
 
 service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
     class core
+    user system
+    group system
     oneshot
 
 on property:init.svc.vendor.per_mgr=running
