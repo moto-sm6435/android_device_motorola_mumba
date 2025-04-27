@@ -741,9 +741,9 @@ vendor/lib64/rfs/dsp/libhme_dsp_skel.so
 vendor/lib64/rfs/dsp/libmctfengine_skel.so
 vendor/lib64/rfs/dsp/libsw2dlut_dsp_skel.so
 
-# Euicc
-product/etc/permissions/privapp-permissions-com.google.android.euicc.xml
-product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
+# EUICC - from salami (OnePlus 11) OOS 11.F.75
+product/etc/permissions/privapp-permissions-euiccgoogle.xml|f2c044ab8db11f299b106375dbd06feef4ff84e0
+product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED|e08fc712975d0c4baed73a2a09f1244ef67179fb
 
 # FASTCV
 vendor/lib64/libfastcvdsp_stub.so
