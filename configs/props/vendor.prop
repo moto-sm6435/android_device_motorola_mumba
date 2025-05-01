@@ -296,6 +296,13 @@ vendor.display.vds_allow_hwc=1
 vendor.gralloc.disable_ubwc=0
 vendor.gralloc.enable_logs=0
 
+# Dex2oat
+dalvik.vm.dex2oat64.enabled=true
+dalvik.vm.dex2oat-cpu-set=4,5,6,7
+dalvik.vm.dex2oat-threads=4
+dalvik.vm.image-dex2oat-cpu-set=4,5,6,7
+dalvik.vm.image-dex2oat-threads=4
+
 # DPM
 persist.vendor.dpm.feature=1
 persist.vendor.dpm.vndr.feature=11
