@@ -215,9 +215,6 @@ PRODUCT_PACKAGES += \
     MotoCommonOverlay
 
 # Overlay
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-lineage
-
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
@@ -228,8 +225,10 @@ PRODUCT_PACKAGES += \
     LineageSystemUIMumba \
     SettingsResMumba \
     TelephonyResMumba \
-    DeviceAsWebcamResMumba
-
+    DeviceAsWebcamResMumba \
+    LineageSettingsProviderMumba \
+    LineageApertureAppMumba \
+    LineageSdkMumba
 PRODUCT_PACKAGES += \
     NcmTetheringOverlay
 
