@@ -73,6 +73,9 @@ value:5120
 [AID_VENDOR_PROD_PERSIST]
 value:5121
 
+[AID_VENDOR_APUSYS]
+value: 5200
+
 [vendor/bin/hw/android.hardware.security.keymint-service.strongbox-nxp]
 mode: 0755
 user: AID_VENDOR_NXP_STRONGBOX
