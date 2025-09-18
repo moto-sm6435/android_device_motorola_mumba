@@ -162,11 +162,11 @@ persist.vendor.camera.physical.num=3
 # Display
 debug.egl.hw=0
 debug.sf.auto_latch_unsignaled=0
-debug.sf.disable_client_composition_cache=1
 debug.sf.early.app.duration.120=11666666
 debug.sf.early.app.duration.144=10333333
 debug.sf.early.app.duration.60=16666666
 debug.sf.early.app.duration.90=13666666
+debug.sf.disable_client_composition_cache=0
 debug.sf.early.app.duration=13666666
 debug.sf.early.sf.duration.120=12333333
 debug.sf.early.sf.duration.144=9722222
