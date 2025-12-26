@@ -645,3 +645,13 @@ subsystem mem_buf_vm
 
 # IPA Events
 /dev/ipa_events         0660   radio      radio
+
+# Additional sensors
+/sys/class/touchscreen/*    double_tap_enabled                                                0664    system  system
+/sys/class/touchscreen/*    double_tap_pressed                                                0664    system  system
+/sys/class/touchscreen/*    udfps_enabled                                                     0664    system  system
+/sys/class/touchscreen/*    udfps_pressed                                                     0664    system  system
+/sys/devices/platform/soc/*.spi/spi_master/spi0/spi0.*/touchscreen/*    double_tap_enabled    0664    system  system
+/sys/devices/platform/soc/*.spi/spi_master/spi0/spi0.*/touchscreen/*    double_tap_pressed    0664    system  system
+/sys/devices/platform/soc/*.spi/spi_master/spi0/spi0.*/touchscreen/*    udfps_enabled         0664    system  system
+/sys/devices/platform/soc/*.spi/spi_master/spi0/spi0.*/touchscreen/*    udfps_pressed         0664    system  system
