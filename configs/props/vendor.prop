@@ -161,7 +161,8 @@ persist.vendor.camera.physical.num=3
 
 # Display
 debug.egl.hw=0
-debug.sf.auto_latch_unsignaled=0
+debug.sf.auto_latch_unsignaled=1
+debug.sf.latch_unsignaled=0
 debug.sf.early.app.duration.120=11666666
 debug.sf.early.app.duration.144=10333333
 debug.sf.early.app.duration.60=16666666
