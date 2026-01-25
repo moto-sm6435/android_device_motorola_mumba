@@ -103,22 +103,6 @@ vendor/etc/models/acd/music_nonenpu.eai
 vendor/etc/models/acd/speech.eai
 vendor/etc/models/acd/speech_nonenpu.eai
 
-# Audio SoundFX
-vendor/lib64/soundfx/libbundleaidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libdownmixaidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libdynamicsprocessingaidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libloudnessenhanceraidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libdlbvolaidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libldnhncr.so;DISABLE_DEPS
-vendor/lib64/soundfx/libswgamedapaidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libqcompostprocbundle.so;DISABLE_DEPS
-vendor/lib64/soundfx/libqcomvisualizer.so;DISABLE_DEPS
-vendor/lib64/soundfx/libqcomvoiceprocessing.so;DISABLE_DEPS
-vendor/lib64/soundfx/libreverbaidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libswspatializeraidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libvisualizeraidl.so;DISABLE_DEPS
-vendor/lib64/soundfx/libvolumelistener.so;DISABLE_DEPS
-
 # Bluetooth - from pdx257 72.1.A.2.127
 vendor/bin/hw/android.hardware.bluetooth@aidl-service-qti|26260568432049745737e7e5a4eb38d2260579d4
 vendor/etc/init/android.hardware.bluetooth@aidl-service-qti.rc|aba655e902c490e552af8e3a41177c8d98748ac2
