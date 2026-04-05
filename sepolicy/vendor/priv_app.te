@@ -1,0 +1,4 @@
+get_prop(priv_app, vendor_mot_hw_prop)
+get_prop(priv_app, audio_config_prop)
+allow priv_app cgroup:dir search;
+allow priv_app adsprpcd_file:dir { search getattr };

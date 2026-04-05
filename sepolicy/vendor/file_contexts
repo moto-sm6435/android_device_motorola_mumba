@@ -1,0 +1,4 @@
+/vendor/lib(64)?/libarcsoft_.*\.so              u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libanc_hdr.*\.so               u:object_r:same_process_hal_file:s0
+
+/(vendor|system/vendor)/lib(64)?/libanc_hdr\.so    u:object_r:same_process_hal_file:s0

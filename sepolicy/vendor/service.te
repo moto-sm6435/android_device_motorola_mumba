@@ -1,0 +1,1 @@
+type hal_motorola_camera_postproc_service, hal_service_type, service_manager_type;

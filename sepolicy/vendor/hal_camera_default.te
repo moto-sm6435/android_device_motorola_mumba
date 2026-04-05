@@ -1,0 +1,2 @@
+hal_client_domain(hal_camera_default, hal_power)
+add_service(hal_camera_default, hal_motorola_camera_postproc_service)
