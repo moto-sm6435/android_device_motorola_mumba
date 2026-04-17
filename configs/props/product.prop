@@ -1,0 +1,73 @@
+# Audio
+audio.spatializer.effect.util_clamp_min=300
+ro.audio.spatializer_enabled=true
+ro.audio.headtracking_enabled=true
+ro.audio.spatializer_transaural_enabled_default=false
+persist.vendor.audio.spatializer.speaker_enabled=true
+aaudio.hw_burst_min_usec=2000
+aaudio.mmap_exclusive_policy=2
+aaudio.mmap_policy=2
+af.fast_track_multiplier=1
+audio.deep_buffer.media=true
+audio.record.delay=100
+audio.sys.mute.latency.factor=2
+audio.sys.noisy.broadcast.delay=500
+audio.sys.offload.pstimeout.secs=3
+audio.sys.routing.latency=0
+audio.timecheck.timeout_duration_ms=8000
+ro.audio.fastraw.supported=false
+ro.audio.monitorRotation=true
+ro.audio.monitorWindowRotation=true
+
+# Bluetooth
+bluetooth.device_id.vendor_id=0x001D
+bluetooth.profile.a2dp.source.enabled=true
+bluetooth.profile.asha.central.enabled=true
+bluetooth.profile.avrcp.controller.enabled=true
+bluetooth.profile.avrcp.target.enabled=true
+bluetooth.profile.bas.client.enabled=true
+bluetooth.profile.gatt.enabled=true
+bluetooth.profile.hfp.ag.enabled=true
+bluetooth.profile.hid.device.enabled=false
+bluetooth.profile.hid.host.enabled=true
+bluetooth.profile.map.server.enabled=true
+bluetooth.profile.opp.enabled=true
+bluetooth.profile.pan.nap.enabled=true
+bluetooth.profile.pan.panu.enabled=true
+bluetooth.profile.pbap.server.enabled=true
+
+# CNE
+persist.vendor.cne.feature=1
+persist.vendor.cne.logging.qxdm=3974
+
+# Media
+media.stagefright.audio.deep=false
+
+# Google
+ro.opa.device_model_id=motorola-mumba
+
+# Motorola
+ro.mot.build.customerid=global
+
+# Radio
+persist.vendor.radio.force_gba_over_isim_app=1
+persist.vendor.radio.jbims=1
+ril.subscription.types=RUIM
+ro.telephony.default_network=26,26
+
+# e-SIM
+masterclear.allow_retain_esim_profiles_after_fdr=true
+esim.enable_esim_system_ui_by_default=true
+ro.telephony.esim_slot_id=1
+
+# Radio (IMS)
+persist.vendor.ims.cam_sensor_delay=20
+persist.vendor.ims.display_delay=40
+persist.vendor.ims.playout_delay=50
+
+# RKPD
+remote_provisioning.enable_rkpd=true
+remote_provisioning.hostname=remoteprovisioning.googleapis.com
+
+# Radio
+ro.vendor.radio.imei.sv=5
