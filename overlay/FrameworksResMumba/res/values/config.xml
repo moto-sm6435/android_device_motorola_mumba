@@ -499,5 +499,8 @@
     
     <!-- True if camera app should be pinned via Pinner Service -->
     <bool name="config_pinnerCameraApp">false</bool>
+ 
+    <!-- Switch to AVC 3.1 for screen recording. -->
+    <string name="config_screenRecorderAVCProfileLevel" translatable="false">3.1</string>
 
 </resources>
