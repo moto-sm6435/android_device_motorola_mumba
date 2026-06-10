@@ -66,8 +66,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom.zram \
-    fstab.qcom.vendor_ramdisk
-    init.qcom.recovery.rc
+    fstab.qcom.vendor_ramdisk \
+    init.mmi.chipset.rc \
+    init.target.rc \
+    init.mmi.overlay.rc \
+    init.qcom.rc \
+    init.vendor.st21nfc.rc \
+    init.mmi.rc \
+    init.qcom.recovery.rc \
+    ueventd-odm.rc \
+    ueventd.qcom.rc
 
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := true
