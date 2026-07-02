@@ -140,6 +140,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.face-V3-ndk.vendor \
+    android.hardware.biometrics.fingerprint-V3-ndk.vendor \
+    android.hardware.biometrics.common-V3-ndk \
+    android.hardware.biometrics.common.util.vendor \
+    android.hardware.biometrics.common.thread.vendor
+
 # GPS
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
