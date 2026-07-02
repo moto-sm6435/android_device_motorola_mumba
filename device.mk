@@ -301,5 +301,10 @@ PRODUCT_PACKAGES += \
     firmware_adrastea_WCNSS_qcom_cfg.ini_symlink \
     firmware_wlanmdsp.otaupdate_symlink
 
+# WiFi Display
+PRODUCT_PACKAGES += \
+    android.media.audio.common.types-V2-cpp \
+    vendor.qti.hardware.display.config-V5-ndk
+
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/motorola/mumba/mumba-vendor.mk)
