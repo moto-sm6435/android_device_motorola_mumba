@@ -1213,9 +1213,6 @@ vendor/firmware/venus_v7_3.mbn
 # PASR
 vendor/lib64/vendor.qti.memory.pasrmanager-V1-ndk.so
 
-# Memory
-vendor/lib64/libvmmem.so
-
 # Neural networks
 vendor/lib64/libQnnChrometraceProfilingReader.so
 vendor/lib64/libQnnCpu.so
