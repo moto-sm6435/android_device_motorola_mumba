@@ -143,6 +143,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     MotoEuicc
 
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm-service.clearkey
+
 # Fastboot
 PRODUCT_PACKAGES += \
     fastbootd
