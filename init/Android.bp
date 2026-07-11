@@ -15,3 +15,10 @@ prebuilt_etc {
     src: "fstab.qcom.zram",
     vendor: true,
 }
+
+prebuilt_etc {
+    name: "init.qcom.recovery.rc",
+    src: "init.qcom.recovery.rc",
+    sub_dir: "init",
+    recovery: true,
+}
