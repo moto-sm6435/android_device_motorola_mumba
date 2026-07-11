@@ -5,6 +5,23 @@
 
 DEVICE_PATH := device/motorola/mumba
 
+# A/B
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    init_boot \
+    product \
+    pvmfw \
+    recovery \
+    system \
+    system_dlkm \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vendor \
+    vendor_boot \
+    vendor_dlkm
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
