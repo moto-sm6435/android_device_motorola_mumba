@@ -1,6 +1,6 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from Motorola Moto g57 power (mumba) (16 WWAAS36V.48-12-ST12.1-5b6d8).
-## variant: RETCN
+## are from Motorola Moto g57 power (mumba) (16 W1WAAS36.48-12-40-4).
+## variant: RETIN
 
 # ACDB Data
 vendor/etc/acdbdata/nn_ns_models/fai__2.6.3_0.0__3.0.0_0.0__eai_1.10_enpu1.pmd
