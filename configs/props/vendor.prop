@@ -328,13 +328,6 @@ debug.stagefright.omx_default_rank=0
 media.c2.hal.selection=aidl
 media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
-vendor.perf.framepacing.enable=1
-ro.vendor.perf-hal.ver=3.0
-vendor.perf.framepacing.enable=1
-ro.vendor.perf.scroll_opt=1
-
 # Radio
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
@@ -386,6 +379,9 @@ persist.vendor.nfc.st.multisim_fw_config=true
 
 # Sim
 keyguard.no_require_sim=true
+
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
 
 # QTI
 ro.soc.manufacturer=QTI

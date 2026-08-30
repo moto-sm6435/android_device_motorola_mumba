@@ -182,6 +182,7 @@ ODM_MANIFEST_NE_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_ne.xml
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # SEPolicy
+include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include hardware/motorola/sepolicy/qti/SEPolicy.mk
 

@@ -94,6 +94,9 @@ on early-boot
     start vendor.sensors
     verity_update_state
 
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
 on boot
     write /dev/cpuset/audio-app/cpus 1-2
     # Add a cpuset for the camera daemon
