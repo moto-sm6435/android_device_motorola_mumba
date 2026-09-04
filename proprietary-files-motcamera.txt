@@ -7,7 +7,7 @@ product/etc/permissions/com.motorola.camera5.xml
 product/etc/permissions/deviceowner-configuration-com.motorola.camera5.xml
 product/etc/permissions/privapp-permissions-com.motorola.camera5.xml
 product/etc/sysconfig/hiddenapi-whitelist-com.motorola.camera5.xml
-product/priv-app/MotCamera5/MotCamera5.apk
+product/priv-app/MotCamera5/MotCamera5.apk;OVERRIDES=Aperture
 system/app/MotoSignatureApp/MotoSignatureApp.apk;PRESIGNED
 system/etc/permissions/com.motorola.motosignature.xml
 system/etc/permissions/moto-core_services.xml
