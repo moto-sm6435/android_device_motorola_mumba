@@ -118,6 +118,9 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set,libcameraservice,ext_lib,//$(LOCAL_PATH):libcameraservice_extension.mumba)
 
+# Dex-pre-opt exclusions
+$(call add-product-dex-preopt-module-config,MotoSignatureApp,disable)
+
 # Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
@@ -459,3 +462,4 @@ PRODUCT_PACKAGES += \
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/motorola/mumba/mumba-vendor.mk)
+$(call inherit-product-if-exists, vendor/motorola/mumba-motcamera/mumba-motcamera-vendor.mk)

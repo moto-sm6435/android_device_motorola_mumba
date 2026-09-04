@@ -419,3 +419,6 @@ ro.config.vc_call_vol_steps=8
 
 # Wi-Fi Display
 persist.sys.wfd.virtual=0
+
+# Camera
+persist.vendor.camera.privapp.list=com.motorola.camera5,com.android.DeviceAsWebcam

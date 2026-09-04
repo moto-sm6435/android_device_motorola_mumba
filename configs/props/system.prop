@@ -55,3 +55,9 @@ ro.wifi.channels=
 # Device
 ro.product.marketname=Motorola G57 Power
 ro.product.mod_device=mumba
+
+# Google Lens
+ro.com.google.lens.oem_camera_package=com.android.camera
+
+# Framework allowlists
+persist.vendor.camera.privapp.list=com.android.camera,org.lineageos.aperture
