@@ -64,7 +64,9 @@ int32_t getTorchStrengthLevelExt() {
 }
 
 void setTorchStrengthLevelExt(int32_t torchStrength, bool enabled) {
-    set(TOGGLE_SWITCH, 0);
+    if (!enabled)
+        set(TOGGLE_SWITCH, 0);
+
     for (auto& path : kTorchLedPaths) {
         auto node = path + "/" + TORCH_BRIGHTNESS;
         set(node, torchStrength);
