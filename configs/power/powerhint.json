@@ -253,6 +253,14 @@
             "ResetOnInit": true
         },
         {
+            "Name": "DoubleTapToWake",
+            "Path": "/sys/class/touchscreen/primary/gesture",
+            "Values": [
+                "49",
+                "06"
+            ]
+        },
+        {
             "Name": "devCpuDmaLatency",
             "Path": "/dev/cpu_dma_latency",
             "Values": [
@@ -610,6 +618,12 @@
             "Node": "sysKernelMsmPerformanceParametersCpuMinFreq",
             "Value": "0:1804800 1:1804800 2:1804800 3:1804800 4:1900800 5:1900800 6:1900800 7:1900800",
             "Duration": 1000
+        },
+        {
+            "PowerHint": "DOUBLE_TAP_TO_WAKE",
+            "Node": "DoubleTapToWake",
+            "Duration": 0,
+            "Value": "49"
         }
     ]
 }
