@@ -1,0 +1,298 @@
+From 7ae71e25da57baf5e94dc7f106c661381c950a9c Mon Sep 17 00:00:00 2001
+From: lostsignal-502 <viaan4542@gmail.com>
+Date: Mon, 7 Sep 2026 15:33:04 +0000
+Subject: [PATCH] MotCamera5: Remove MotoPerf
+
+Drop the MotoPerfManagerWrapper (motorola.core_services.perf) integration
+and its perf-hint call sites so the camera no longer depends on the
+Motorola performance service.
+---
+ smali/com/motorola/camera/Camera.smali        |  10 -
+ .../mcf/Mcf$$ExternalSyntheticLambda1.smali   |  10 -
+ .../perf/MotoPerfManagerWrapper.smali         | 232 ------------------
+ 3 files changed, 252 deletions(-)
+ delete mode 100644 smali/motorola/core_services/perf/MotoPerfManagerWrapper.smali
+
+diff --git a/smali/com/motorola/camera/Camera.smali b/smali/com/motorola/camera/Camera.smali
+index dc9c057..f2a59ec 100644
+--- a/smali/com/motorola/camera/Camera.smali
++++ b/smali/com/motorola/camera/Camera.smali
+@@ -5226,16 +5226,6 @@
+     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+     :cond_e
+-    sget-object v4, Lcom/motorola/camera/CameraApp;->sInstance:Lcom/motorola/camera/CameraApp;
+-
+-    invoke-static {v4}, Lmotorola/core_services/perf/MotoPerfManagerWrapper;->getInstance(Landroid/content/Context;)Lmotorola/core_services/perf/MotoPerfManagerWrapper;
+-
+-    move-result-object v4
+-
+-    const/16 v5, 0x77
+-
+-    invoke-virtual {v4, v5, v0, v2}, Lmotorola/core_services/perf/MotoPerfManagerWrapper;->perfHintStart(IILandroid/os/Bundle;)V
+-
+     :cond_f
+     iget-object v0, p0, Lcom/motorola/camera/Camera;->mController:Lcom/motorola/camera/Controller;
+ 
+diff --git a/smali/com/motorola/camera/mcf/Mcf$$ExternalSyntheticLambda1.smali b/smali/com/motorola/camera/mcf/Mcf$$ExternalSyntheticLambda1.smali
+index 025d8f8..894a6f9 100644
+--- a/smali/com/motorola/camera/mcf/Mcf$$ExternalSyntheticLambda1.smali
++++ b/smali/com/motorola/camera/mcf/Mcf$$ExternalSyntheticLambda1.smali
+@@ -194,16 +194,6 @@
+     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+ 
+     :cond_3
+-    sget-object p0, Lcom/motorola/camera/CameraApp;->sInstance:Lcom/motorola/camera/CameraApp;
+-
+-    invoke-static {p0}, Lmotorola/core_services/perf/MotoPerfManagerWrapper;->getInstance(Landroid/content/Context;)Lmotorola/core_services/perf/MotoPerfManagerWrapper;
+-
+-    move-result-object p0
+-
+-    const/16 v0, 0x77
+-
+-    invoke-virtual {p0, v0}, Lmotorola/core_services/perf/MotoPerfManagerWrapper;->perfHintEnd(I)V
+-
+     :cond_4
+     return-void
+ 
+diff --git a/smali/motorola/core_services/perf/MotoPerfManagerWrapper.smali b/smali/motorola/core_services/perf/MotoPerfManagerWrapper.smali
+deleted file mode 100644
+index 5ea290b..0000000
+--- a/smali/motorola/core_services/perf/MotoPerfManagerWrapper.smali
++++ /dev/null
+@@ -1,232 +0,0 @@
+-.class public Lmotorola/core_services/perf/MotoPerfManagerWrapper;
+-.super Ljava/lang/Object;
+-.source "SourceFile"
+-
+-
+-# static fields
+-.field public static final GAME_MODE_ABILITY_WIFI_LOW_LATENCY:Ljava/lang/String; = "game_wifi_low_latency"
+-
+-.field public static final GAME_MODE_GAME_FPS_OBSERVER:Ljava/lang/String; = "game_fps_observer"
+-
+-.field public static final GAME_MODE_GAME_HIGH_PERF_MODE:Ljava/lang/String; = "game_high_perf_mode"
+-
+-.field public static final GAME_MODE_GAME_POWER_SAVE_MODE:Ljava/lang/String; = "game_power_save_mode"
+-
+-.field public static final GAME_MODE_PERF_MODE_OBSERVER:Ljava/lang/String; = "perf_mode_observer"
+-
+-.field public static final GAME_MODE_WIFI_LOW_LATENCY_ENABLE:Ljava/lang/String; = "game_mode_wifi_low_latency_enable"
+-
+-.field public static final HINT_APPS_EXTEND_1:I = 0x8c
+-
+-.field public static final HINT_APPS_EXTEND_2:I = 0x8d
+-
+-.field public static final HINT_APPS_EXTEND_3:I = 0x8e
+-
+-.field public static final HINT_APPS_EXTEND_4:I = 0x8f
+-
+-.field public static final HINT_APPS_EXTEND_5:I = 0x90
+-
+-.field public static final HINT_APPS_EXTEND_6:I = 0x91
+-
+-.field public static final HINT_APPS_EXTEND_7:I = 0x92
+-
+-.field public static final HINT_KEYGUARD_EXTEND_1:I = 0x85
+-
+-.field public static final HINT_KEYGUARD_EXTEND_2:I = 0x86
+-
+-.field public static final HINT_KEYGUARD_EXTEND_3:I = 0x87
+-
+-.field public static final HINT_KEYGUARD_EXTEND_4:I = 0x88
+-
+-.field public static final HINT_KEYGUARD_EXTEND_5:I = 0x89
+-
+-.field public static final HINT_KEYGUARD_EXTEND_6:I = 0x8a
+-
+-.field public static final HINT_KEYGUARD_EXTEND_7:I = 0x8b
+-
+-.field public static final HINT_KEYGUARD_NOTIFICATIONSHADE_EXPANDED:I = 0x82
+-
+-.field public static final HINT_KEYGUARD_NOTIFICATIONSHADE_SCROLL_HORIZONTAL:I = 0x84
+-
+-.field public static final HINT_KEYGUARD_NOTIFICATIONSHADE_SCROLL_VERTICAL:I = 0x83
+-
+-.field public static final HINT_LAUNCHER_APP_ENTERING:I = 0x79
+-
+-.field public static final HINT_LAUNCHER_APP_EXITING:I = 0x7a
+-
+-.field public static final HINT_LAUNCHER_APP_KILLED_FROM_RECENTS:I = 0x7b
+-
+-.field public static final HINT_LAUNCHER_APP_SWIPE_RECENTS:I = 0x7c
+-
+-.field public static final HINT_LAUNCHER_EXTEND_1:I = 0x7d
+-
+-.field public static final HINT_LAUNCHER_EXTEND_2:I = 0x7e
+-
+-.field public static final HINT_LAUNCHER_EXTEND_3:I = 0x7f
+-
+-.field public static final HINT_LAUNCHER_EXTEND_4:I = 0x80
+-
+-.field public static final HINT_LAUNCHER_EXTEND_5:I = 0x81
+-
+-.field public static final HINT_LAUNCHER_OVERLAY_ENTERING:I = 0x78
+-
+-.field public static final MAXE_ABILITY_BALANCE_MODE:Ljava/lang/String; = "maxe_balance_mode"
+-
+-.field public static final MAXE_ABILITY_TURBO_MODE:Ljava/lang/String; = "maxe_turbo_mode"
+-
+-.field public static final PERFHINT_CONTROLLER:Ljava/lang/String; = "perfhint_controller"
+-
+-
+-# direct methods
+-.method public constructor <init>()V
+-    .locals 1
+-
+-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string v0, "Stub!"
+-
+-    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public static getInstance(Landroid/content/Context;)Lmotorola/core_services/perf/MotoPerfManagerWrapper;
+-    .locals 1
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string v0, "Stub!"
+-
+-    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-
+-# virtual methods
+-.method public getAppOptAbilities()Ljava/util/List;
+-    .locals 1
+-    .annotation system Ldalvik/annotation/Signature;
+-        value = {
+-            "()",
+-            "Ljava/util/List<",
+-            "Ljava/lang/String;",
+-            ">;"
+-        }
+-    .end annotation
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string v0, "Stub!"
+-
+-    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public getAppOptState(Ljava/lang/String;Ljava/lang/String;)Landroid/os/Bundle;
+-    .locals 0
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string p1, "Stub!"
+-
+-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public getCheckinData(I)Ljava/util/Map;
+-    .locals 0
+-    .annotation system Ldalvik/annotation/Signature;
+-        value = {
+-            "(I)",
+-            "Ljava/util/Map<",
+-            "Ljava/lang/String;",
+-            "Ljava/lang/String;",
+-            ">;"
+-        }
+-    .end annotation
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string p1, "Stub!"
+-
+-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public isPerfHintControllerSurported()Z
+-    .locals 1
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string v0, "Stub!"
+-
+-    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public perfHintEnd(I)V
+-    .locals 0
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string p1, "Stub!"
+-
+-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public perfHintStart(IILandroid/os/Bundle;)V
+-    .locals 0
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string p1, "Stub!"
+-
+-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public registerGameOptObserver(Ljava/lang/String;ILmotorola/core_services/perf/MotoGameOptObserver;)V
+-    .locals 0
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string p1, "Stub!"
+-
+-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public setAppOptState(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Z
+-    .locals 0
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string p1, "Stub!"
+-
+-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-
+-.method public unregisterGameOptObserver(Ljava/lang/String;Lmotorola/core_services/perf/MotoGameOptObserver;)V
+-    .locals 0
+-
+-    new-instance p0, Ljava/lang/RuntimeException;
+-
+-    const-string p1, "Stub!"
+-
+-    invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+-
+-    throw p0
+-.end method
+-- 
+2.53.0
+
