@@ -1,0 +1,2 @@
+# Torch Control
+type sysfs_torch, sysfs_type, fs_type;
