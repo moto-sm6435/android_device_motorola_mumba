@@ -64,8 +64,11 @@ int32_t getTorchStrengthLevelExt() {
 }
 
 void setTorchStrengthLevelExt(int32_t torchStrength, bool enabled) {
-    if (!enabled)
-        set(TOGGLE_SWITCH, 0);
+    // Always drop the switch first. If the torch was already on and only the
+    // strength changed, this forces a fresh edge so the new brightness value
+    // actually gets re-latched by the flash IC, instead of only updating the
+    // cached sysfs value with no physical effect.
+    set(TOGGLE_SWITCH, 0);
 
     for (auto& path : kTorchLedPaths) {
         auto node = path + "/" + TORCH_BRIGHTNESS;
