@@ -60,7 +60,7 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             apktool_patch "${2}" \
                 "${MY_DIR}/blob-patches/0001-MotCamera5-Remove-MotoPerf.patch" \
-                -s
+                -r
             ;;
     esac
 
