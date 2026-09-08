@@ -32,19 +32,20 @@ SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        -n | --no-cleanup )
-                CLEAN_VENDOR=false
-                ;;
-        -k | --kang )
-                KANG="--kang"
-                ;;
-        -s | --section )
-                SECTION="${2}"; shift
-                CLEAN_VENDOR=false
-                ;;
-        * )
-                SRC="${1}"
-                ;;
+        -n | --no-cleanup)
+            CLEAN_VENDOR=false
+            ;;
+        -k | --kang)
+            KANG="--kang"
+            ;;
+        -s | --section)
+            SECTION="${2}"
+            shift
+            CLEAN_VENDOR=false
+            ;;
+        *)
+            SRC="${1}"
+            ;;
     esac
     shift
 done
@@ -53,45 +54,26 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function blob_fixup() {
+    case "${1}" in
+        product/priv-app/MotCamera5/MotCamera5.apk)
+            [ "$2" = "" ] && return 0
+            apktool_patch "${2}" \
+                "${MY_DIR}/blob-patches/0001-MotCamera5-Remove-MotoPerf.patch" \
+                -s
+            ;;
+    esac
+
+    return 0
+}
+
+function blob_fixup_dry() {
+    blob_fixup "$1" ""
+}
+
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files-motcamera.txt" "${SRC}" "${KANG}" --section "${SECTION}"
-
-# Apply apktool/smali patches to extracted blobs
-BLOB_PATCHES_DIR="${MY_DIR}/blob-patches"
-APKTOOL="${APKTOOL:-apktool}"
-
-apply_blob_patch() {
-    local blob="${1}"
-    shift
-
-    local apk="${OUTDIR}/proprietary/${blob}"
-    if [ ! -f "${apk}" ]; then
-        echo "!!! ${apk} not found, skipping blob patches"
-        return 0
-    fi
-
-    local work
-    work="$(mktemp -d)"
-
-    echo "Patching ${blob}"
-    "${APKTOOL}" d -f -r -o "${work}/out" "${apk}"
-
-    local patch
-    for patch in "${@}"; do
-        echo "  applying $(basename "${patch}")"
-        patch -p1 -d "${work}/out" < "${BLOB_PATCHES_DIR}/${patch}"
-    done
-
-    "${APKTOOL}" b -o "${work}/patched.apk" "${work}/out"
-    cp "${work}/patched.apk" "${apk}"
-
-    rm -rf "${work}"
-}
-
-# MotCamera5: drop the MotoPerf (motorola.core_services.perf) integration
-apply_blob_patch "product/priv-app/MotCamera5/MotCamera5.apk" \
-    "0001-MotCamera5-Remove-MotoPerf.patch"
 
 "${MY_DIR}/setup-makefiles-motcamera.sh"
