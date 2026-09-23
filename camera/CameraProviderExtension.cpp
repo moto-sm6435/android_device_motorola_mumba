@@ -70,9 +70,12 @@ void setTorchStrengthLevelExt(int32_t torchStrength, bool enabled) {
     // cached sysfs value with no physical effect.
     set(TOGGLE_SWITCH, 0);
 
+    // On torch off, framework passes the default level with enabled=false.
+    // Leaving the torch LEDs at a non-zero brightness keeps them armed in the
+    // flash driver, which blocks the camera HAL from firing flash later.
     for (auto& path : kTorchLedPaths) {
         auto node = path + "/" + TORCH_BRIGHTNESS;
-        set(node, torchStrength);
+        set(node, enabled ? torchStrength : 0);
     }
 
     if (enabled)
