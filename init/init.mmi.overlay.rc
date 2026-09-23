@@ -133,6 +133,7 @@ on boot
     chmod 0660 /sys/class/touchscreen/primary/edge
     chown system system /sys/class/touchscreen/primary/gesture
     chmod 0660 /sys/class/touchscreen/primary/gesture
+    write /sys/class/touchscreen/primary/gesture 49
     chown system system /sys/class/touchscreen/primary/sample
     chmod 0660 /sys/class/touchscreen/primary/sample
     chown system system /sys/class/touchscreen/primary/log_trigger

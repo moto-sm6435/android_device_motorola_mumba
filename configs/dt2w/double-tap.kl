@@ -3,4 +3,5 @@
 #
 
 # Triggers wakeup on BTN_TRIGGER_HAPPY6
-key 709   WAKEUP
+key 709   WAKEUP          WAKE
+key 706   WAKEUP          WAKE
