@@ -286,3 +286,6 @@ on property:sys.usb.accessory_current_limit=0
 # load moto kern prot, must be after the wifi driver maps DMA!
 on property:sys.boot_completed=1 && property:ro.boot.moto_kern_prot=true
     insmod /vendor/lib/modules/moto_kern_prot.ko mem_ready=1
+
+on property:ro.vendor.hw.esim=false
+    mount none /product/lost+found /product/etc/permissions/android.hardware.telephony.euicc.xml bind
