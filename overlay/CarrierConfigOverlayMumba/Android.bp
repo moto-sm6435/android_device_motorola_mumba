@@ -1,0 +1,13 @@
+//
+// Automatically generated file. DO NOT MODIFY
+//
+
+runtime_resource_overlay {
+    name: "CarrierConfigOverlayMumba",
+    theme: "CarrierConfigOverlayMumba",
+    sdk_version: "current",
+    aaptflags: [
+        "--keep-raw-values",
+    ],
+    product_specific: true,
+}
