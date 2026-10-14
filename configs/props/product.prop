@@ -70,7 +70,7 @@ remote_provisioning.enable_rkpd=true
 remote_provisioning.hostname=remoteprovisioning.googleapis.com
 
 # Radio
-ro.vendor.radio.imei.sv=5
+ro.vendor.radio.imei.sv=11
 
 # Battery Saving
 persist.radio.add_power_save=1

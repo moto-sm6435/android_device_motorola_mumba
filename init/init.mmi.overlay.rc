@@ -5,7 +5,7 @@ on early-init
    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -r -d /vendor/lib/modules zram
 
 on late-init
-   exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules moto_mm moto_swap
+   exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules moto_mm moto_swap5 mmi_lpm_dbg
 
 on fs
 	insmod /vendor/lib/modules/leds_aw99703.ko

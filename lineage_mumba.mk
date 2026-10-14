@@ -22,8 +22,8 @@ PRODUCT_MODEL := G57 Power
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="mumba_g-user 16 W1WAAS36M.48-12-ST12.1 c557f6 release-keys" \
-    BuildFingerprint=motorola/mumba_g/mumba:16/W1WAAS36M.48-12-ST12.1/c557f6:user/release-keys \
+    BuildDesc="mumba_g-user 17 A171WAAM-A171-ST2.1 221d7 release-keys" \
+    BuildFingerprint=motorola/mumba_g/mumba:17/A171WAAM-A171-ST2.1/221d7:user/release-keys \
     DeviceName=mumba \
     DeviceProduct=mumba \
     SystemDevice=mumba \

@@ -1,15 +1,17 @@
-From bd99373bfcab465093de2afccbfbb4e7c7a9dac5 Mon Sep 17 00:00:00 2001
-From: Vachounet <vachounet@live.fr>
-Date: Wed, 27 Jan 2021 23:28:48 +0100
-Subject: [PATCH 2/4] ImsConfigImpl: don't call setSubscriptionProperty for 
- wfc_ims_mdn
+From c81664f07072333783f1bd230a9baf0a34119756 Mon Sep 17 00:00:00 2001
+From: xrenopnn <razenxizu@gmail.com>
+Date: Thu, 15 Oct 2026 00:54:45 +0530
+Subject: [PATCH 2/4] [PATCH 2/4] ImsConfigImpl: don't call
+ setSubscriptionProperty for wfc_ims_mdn
 
+Co-authored-by: Vachounet <vachounet@live.fr>
+Signed-off-by: xrenopnn <razenxizu@gmail.com>
 ---
- smali/org/codeaurora/ims/ImsConfigImpl.smali | 55 +-------------------
- 1 file changed, 2 insertions(+), 53 deletions(-)
+ smali/org/codeaurora/ims/ImsConfigImpl.smali | 53 --------------------
+ 1 file changed, 53 deletions(-)
 
 diff --git a/smali/org/codeaurora/ims/ImsConfigImpl.smali b/smali/org/codeaurora/ims/ImsConfigImpl.smali
-index 671d92b..72ae3c6 100644
+index b154100..2dedc85 100644
 --- a/smali/org/codeaurora/ims/ImsConfigImpl.smali
 +++ b/smali/org/codeaurora/ims/ImsConfigImpl.smali
 @@ -2702,59 +2702,6 @@
@@ -18,7 +20,7 @@ index 671d92b..72ae3c6 100644
      :cond_2
 -    if-ne p1, v2, :cond_3
 -
--    .line 792
+-    .line 791
 -    new-instance v0, Ljava/lang/StringBuilder;
 -
 -    const-string v1, "setProvisionedStringValue WIFI_MDN set db value="
@@ -37,7 +39,7 @@ index 671d92b..72ae3c6 100644
 -
 -    invoke-static {p0, v0}, Lcom/qualcomm/ims/utils/Log;->i(Ljava/lang/Object;Ljava/lang/String;)V
 -
--    .line 796
+-    .line 795
 -    :try_start_0
 -    iget v0, p0, Lorg/codeaurora/ims/ImsConfigImpl;->mSubId:I
 -
@@ -52,7 +54,7 @@ index 671d92b..72ae3c6 100644
 -    :catch_0
 -    move-exception v0
 -
--    .line 799
+-    .line 798
 -    new-instance v1, Ljava/lang/StringBuilder;
 -
 -    const-string v2, "setSubscriptionProperty fail, e="
@@ -73,5 +75,4 @@ index 671d92b..72ae3c6 100644
  
      const/4 v6, 0x0
 -- 
-2.43.0
-
+2.34.1
