@@ -27,6 +27,7 @@
     </hal>
    <hal format="aidl" optional="true">
         <name>motorola.hardware.health</name>
+        <version>2</version>
         <interface>
             <name>IMotoHealth</name>
             <instance>default</instance>
