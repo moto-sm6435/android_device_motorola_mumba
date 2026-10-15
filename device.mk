@@ -5,6 +5,9 @@
 
 PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
 
+# Dolby
+$(call inherit-product, hardware/dolby/aidl-dolby.mk)
+
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
