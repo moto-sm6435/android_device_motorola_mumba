@@ -33,28 +33,6 @@
       "DefaultIndex": 7
     },
     {
-      "Name": "CPULittleClusterUpRateLimit",
-      "Path": "/sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us",
-      "Values": [
-        "0",
-        "500",
-        "2000"
-      ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0
-    },
-    {
-      "Name": "CPULittleClusterDownRateLimit",
-      "Path": "/sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us",
-      "Values": [
-        "0",
-        "20000",
-        "2000"
-      ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0
-    },
-    {
       "Name": "CPUBigClusterMaxFreq",
       "Path": "/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq",
       "Values": [
@@ -95,26 +73,44 @@
       "DefaultIndex": 11
     },
     {
-      "Name": "CPUBigClusterUpRateLimit",
-      "Path": "/sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us",
+      "Name": "sysDevicesSystemCpuCpufreqPolicy0WaltAdaptiveLowFreq",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy0/walt/adaptive_low_freq",
       "Values": [
         "0",
-        "500",
-        "2000"
+        "691200"
       ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0
+      "DefaultIndex": 0,
+      "ResetOnInit": true
     },
     {
-      "Name": "CPUBigClusterDownRateLimit",
-      "Path": "/sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us",
+      "Name": "sysDevicesSystemCpuCpufreqPolicy4WaltAdaptiveLowFreq",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy4/walt/adaptive_low_freq",
       "Values": [
         "0",
-        "10000",
-        "2000"
+        "691200"
       ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "sysDevicesSystemCpuCpufreqPolicy4WaltBoost",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy4/walt/boost",
+      "Values": [
+        "-6",
+        "691200"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {  
+      "Name": "sysDevicesSystemCpuCpufreqPolicy0WaltBoost",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy0/walt/boost",
+      "Values": [
+        "0",
+        "691200"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
     },
     {
       "Name": "UclampTAMin",
@@ -404,28 +400,16 @@
       "Value": "940800"
     },
     {
-      "PowerHint": "INTERACTIVE",
-      "Node": "CPULittleClusterUpRateLimit",
-      "Duration": 0,
-      "Value": "500"
+      "PowerHint": "LAUNCH",
+      "Node": "sysDevicesSystemCpuCpufreqPolicy4WaltAdaptiveLowFreq",
+      "Value": "691200",
+      "Duration": 2000
     },
     {
-      "PowerHint": "INTERACTIVE",
-      "Node": "CPULittleClusterDownRateLimit",
-      "Duration": 0,
-      "Value": "20000"
-    },
-    {
-      "PowerHint": "INTERACTIVE",
-      "Node": "CPUBigClusterUpRateLimit",
-      "Duration": 0,
-      "Value": "500"
-    },
-    {
-      "PowerHint": "INTERACTIVE",
-      "Node": "CPUBigClusterDownRateLimit",
-      "Duration": 0,
-      "Value": "10000"
+      "PowerHint": "LAUNCH",
+      "Node": "sysDevicesSystemCpuCpufreqPolicy0WaltAdaptiveLowFreq",
+      "Value": "691200",
+      "Duration": 2000
     },
     {
       "PowerHint": "INTERACTIVE",
