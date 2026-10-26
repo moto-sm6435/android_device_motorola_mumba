@@ -200,65 +200,25 @@
       "DefaultIndex": 1
     },
     {
-      "Name": "GPUMaxFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
+      "Name": "sysClassKgslKgsl3d0DevfreqMinFreq",
+      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
-        "816000000",
-        "734000000",
-        "650000000",
-        "600000000",
-        "500000000",
-        "345000000",
-        "295000000"
+        "295000000",
+        "345000000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
     },
-    {
-      "Name": "GPUMinFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
-      "Values": [
-        "816000000",
-        "734000000",
-        "650000000",
-        "600000000",
-        "500000000",
-        "345000000",
-        "295000000"
-      ],
-      "ResetOnInit": true,
-      "DefaultIndex": 6
-    },
-    {
-      "Name": "GPUForceRailOn",
-      "Path": "/sys/class/kgsl/kgsl-3d0/force_rail_on",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0
-    },
-    {
-      "Name": "GPUForceClkOn",
-      "Path": "/sys/class/kgsl/kgsl-3d0/force_clk_on",
-      "Values": [
-        "0",
-        "1"
-      ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0
-    },
-    {
-      "Name": "GPUIdleTimer",
-      "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
-      "Values": [
-        "80",
-        "10000"
-      ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0
-    },
+        {
+            "Name": "sysClassKgslKgsl3d0DevfreqMaxFreq",
+            "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
+            "Values": [
+                "816000000",
+                "500000000"
+            ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+        },
     {
       "Name": "CPUBWHystTriggerCount",
       "Path": "/sys/devices/system/cpu/bus_dcvs/DDR/19091000.qcom,bwmon-ddr/hyst_trigger_count",
@@ -370,12 +330,6 @@
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
       "Value": "1804800"
-    },
-    {
-      "PowerHint": "SUSTAINED_PERFORMANCE",
-      "Node": "GPUMaxFreq",
-      "Duration": 0,
-      "Value": "816000000"
     },
     {
       "PowerHint": "INTERACTION",
@@ -540,34 +494,10 @@
       "Value": "1440000"
     },
     {
-      "PowerHint": "LAUNCH",
-      "Node": "GPUForceClkOn",
-      "Duration": 3000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "GPUForceRailOn",
-      "Duration": 3000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "GPUIdleTimer",
-      "Duration": 3000,
-      "Value": "10000"
-    },
-    {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "PowerHALRenderingState",
       "Duration": 0,
       "Value": "EXPENSIVE_RENDERING"
-    },
-    {
-      "PowerHint": "EXPENSIVE_RENDERING",
-      "Node": "GPUMinFreq",
-      "Duration": 0,
-      "Value": "500000000"
     },
     {
       "PowerHint": "Flipendo",
@@ -580,6 +510,18 @@
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
       "Value": "2208000"
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "sysClassKgslKgsl3d0DevfreqMinFreq",
+      "Value": "345000000",
+      "Duration": 0
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "sysClassKgslKgsl3d0DevfreqMaxFreq",
+      "Value": "500000000",
+      "Duration": 0
     },
     {
       "PowerHint": "DOUBLE_TAP_TO_WAKE",
