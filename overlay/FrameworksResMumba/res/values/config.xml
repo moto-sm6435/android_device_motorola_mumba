@@ -450,10 +450,10 @@
          config_mainBuiltInDisplayCutout
          -->
     <string name="config_mainBuiltInDisplayCutoutRectApproximation" translatable="false">
-        M -36.5 0
-        L -36.5 94
-        L 36.5 94
-        L 36.5 0
+        M -36.5 14
+        L -36.5 108
+        L 36.5 108
+        L 36.5 14
         Z
     </string>
 
