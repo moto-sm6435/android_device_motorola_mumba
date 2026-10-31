@@ -47,7 +47,6 @@ PRODUCT_PACKAGES += \
     libagm_compress_plugin \
     libagm_mixer_plugin \
     libagm_pcm_plugin \
-    libagmipcservice \
     libaudiochargerlistener \
     libbatterylistener \
     libfmpal \
@@ -55,33 +54,21 @@ PRODUCT_PACKAGES += \
     libmediautils_vendor.vendor \
     libmemunreachable.vendor \
     libpalipcservice \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
     libsndcardparser \
     libsoundtriggerhal.qti \
-    libvolumelistener \
     qtiaudiohalvendorextn \
     qti-audio-types-aidl-V1-ndk.vendor
 
 PRODUCT_PACKAGES += \
     libalsautilsv2.vendor \
-    libbundleaidl \
-    libdownmixaidl \
-    libdynamicsprocessingaidl \
-    libloudnessenhanceraidl \
-    libreverbaidl \
-    libvisualizeraidl
-
-PRODUCT_PACKAGES += \
     android.hardware.audio.common-V1-ndk.vendor \
     android.hardware.audio.core-V2-ndk.vendor \
     android.hardware.audio.core.sounddose-V1-ndk.vendor \
     libalsautilsv2.vendor \
     libaudioaidlcommon.vendor \
-    libaudioutils_shim \
     libmediautils_vendor.vendor \
     libmemunreachable.vendor
+    libaudioutils_shim
 
 AUDIO_HAL_DIR := hardware/qcom-caf/sm8450-6.6/audio/primary-hal
 CONFIG_HAL_SRC_DIR := $(AUDIO_HAL_DIR)/configs/parrot

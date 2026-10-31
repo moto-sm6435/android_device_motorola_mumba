@@ -46,6 +46,12 @@ vendor/lib64/hw/libaudiocorehal.default.so;DISABLE_DEPS;REQUIRED=manifest_audioc
 vendor/lib64/hw/libaudiocorehal.qti.so;DISABLE_DEPS
 vendor/lib64/hw/libaudioeffecthal.qti.so;DISABLE_DEPS;REQUIRED=audioeffectservice_qti.xml
 vendor/lib64/libadm.so
+vendor/lib64/libar-acdb.so
+vendor/lib64/libar-gpr.so
+vendor/lib64/libar-gsl.so
+vendor/lib64/libats.so
+vendor/lib64/liblx-ar_util.so
+vendor/lib64/liblx-osal.so
 vendor/lib64/libar-pal.so
 vendor/lib64/libaualgo_azp_component.so
 vendor/lib64/libaualgo_azp_wrapper.so
@@ -102,6 +108,25 @@ vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/music_nonenpu.eai
 vendor/etc/models/acd/speech.eai
 vendor/etc/models/acd/speech_nonenpu.eai
+
+# Audio graph manager
+vendor/lib64/libagm.so
+vendor/lib64/libagmclient.so
+vendor/lib64/libagmipcservice.so
+vendor/lib64/libagmmixer.so
+
+# Audio SoundFX
+vendor/lib64/soundfx/libbundleaidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libdownmixaidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libdynamicsprocessingaidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libloudnessenhanceraidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libldnhncr.so;DISABLE_DEPS
+vendor/lib64/soundfx/libqcompostprocbundle.so;DISABLE_DEPS
+vendor/lib64/soundfx/libqcomvisualizer.so;DISABLE_DEPS
+vendor/lib64/soundfx/libqcomvoiceprocessing.so;DISABLE_DEPS
+vendor/lib64/soundfx/libreverbaidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libvisualizeraidl.so;DISABLE_DEPS
+vendor/lib64/soundfx/libvolumelistener.so;DISABLE_DEPS
 
 # Bluetooth - from pdx257 72.1.A.2.127
 vendor/bin/hw/android.hardware.bluetooth@aidl-service-qti|26260568432049745737e7e5a4eb38d2260579d4

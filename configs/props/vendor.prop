@@ -1,5 +1,4 @@
 # Audio
-vendor.audio.hal.stubmode=4
 audio.spatializer.pose_predictor_type=2
 audio.spatializer.prediction_duration_ms=50
 persist.vendor.audio.effectimplenter=dolby
