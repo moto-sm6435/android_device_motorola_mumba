@@ -1,0 +1,22 @@
+on post-fs-data
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+
+    chown system system /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+    chown system system /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
+    chown system system /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
+
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/max_freq
+
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
+    chmod 0660 /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
+
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/min_freq
+    chmod 0660 /sys/class/kgsl/kgsl-3d0/devfreq/max_freq

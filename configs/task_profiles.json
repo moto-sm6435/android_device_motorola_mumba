@@ -1,0 +1,58 @@
+{
+  "Profiles": [
+     {
+       "Name": "ResetUclampGrp",
+       "Actions": [
+         {
+           "Name": "WriteFile",
+           "Params":
+           {
+             "FilePath": "/proc/moto_mdpf/mdpf_task",
+             "Value": "w <pid> 16777216",
+             "LogFailures": "false"
+           }
+         }
+       ]
+     },
+     {
+       "Name": "NoResetUclampGrp",
+       "Actions": [
+         {
+           "Name": "WriteFile",
+           "Params":
+           {
+             "FilePath": "/proc/moto_mdpf/mdpf_task",
+             "Value": "c <pid> 16777216",
+             "LogFailures": "false"
+           }
+         }
+       ]
+     },
+     {
+       "Name": "SFMainPolicy",
+       "Actions": [
+         {
+           "Name": "JoinCgroup",
+           "Params":
+           {
+             "Controller": "cpuset",
+             "Path": "foreground"
+           }
+         }
+       ]
+     },
+     {
+       "Name": "SFRenderEnginePolicy",
+       "Actions": [
+         {
+           "Name": "JoinCgroup",
+           "Params":
+           {
+             "Controller": "cpuset",
+             "Path": "foreground"
+           }
+         }
+       ]
+     }
+  ]
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kernel-manager>
+
+    <cpu
+        id="little"
+        group="Little CPU"
+        minId="axion_min_freq"
+        maxId="axion_max_freq"
+        governorId="little_cpu_governor"
+        minNode="/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq"
+        maxNode="/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq"
+        availablePath="/sys/devices/system/cpu/cpufreq/policy0/scaling_available_frequencies"
+        governorNode="/sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
+        governorAvailablePath="/sys/devices/system/cpu/cpufreq/policy0/scaling_available_governors" />
+
+    <cpu
+        id="big"
+        group="Big CPU"
+        minId="axion_min_freq_big"
+        maxId="axion_max_freq_big"
+        governorId="big_cpu_governor"
+        minNode="/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq"
+        maxNode="/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq"
+        availablePath="/sys/devices/system/cpu/cpufreq/policy4/scaling_available_frequencies"
+        governorNode="/sys/devices/system/cpu/cpufreq/policy4/scaling_governor"
+        governorAvailablePath="/sys/devices/system/cpu/cpufreq/policy4/scaling_available_governors" />
+
+    <gpu
+        node="/sys/class/kgsl/kgsl-3d0/devfreq"
+        currentNode="/sys/class/kgsl/kgsl-3d0/gpuclk"
+        usageNode="/sys/class/kgsl/kgsl-3d0/gpu_busy_percentage"
+        frequencyMultiplier="1"
+        values="816000000,734000000,650000000,600000000,500000000,345000000,295000000" />
+
+</kernel-manager>

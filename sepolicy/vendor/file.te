@@ -1,2 +1,5 @@
 # Torch Control
 type sysfs_torch, sysfs_type, fs_type;
+
+# GPU Clock
+type vendor_sysfs_kgsl_max_gpuclk, sysfs_type, fs_type;

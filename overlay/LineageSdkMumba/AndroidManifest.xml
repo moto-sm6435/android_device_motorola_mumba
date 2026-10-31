@@ -4,8 +4,10 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="lineageos.platform.overlay.mumba">
-    <overlay android:targetPackage="lineageos.platform"
-             android:isStatic="true"
-             android:priority="200" />
+    package="lineageos.platform.overlay.mumba">
+
+    <overlay
+        android:isStatic="true"
+        android:priority="200"
+        android:targetPackage="lineageos.platform" />
 </manifest>

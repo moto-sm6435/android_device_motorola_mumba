@@ -1,0 +1,64 @@
+# Audio
+audio.deep_buffer.media=true
+audio.offload.disable=false
+audio.offload.gapless.enabled=false
+audio.offload.min.duration.secs=60
+audio.offload.video=false
+persist.vendor.audio.dualmic.config=endfire
+persist.vendor.audio.fluence.speaker=false
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicecomm=true
+persist.vendor.audio.fluence.voicerec=false
+ro.audio.ihaladaptervendorextension_enabled=true
+vendor.audio.parser.ip.buffer.size=262144
+vendor.audio.snd_card.open.retries=50
+
+# Bluetooth
+bluetooth.device.class_of_device=90,2,12
+bluetooth.hfp.codec_aptx_voice.enabled=false
+bluetooth.hfp.swb.aptx.power_management.enabled=false
+bluetooth.leaudio.dual_bidirection_swb.supported=true
+bluetooth.profile.pbap.sim.enabled=true
+bluetooth.profile.sap.server.enabled=true
+persist.bluetooth.leaudio.allow.multiple.context=false
+persist.bluetooth.leaudio.bypass_allow_list=false
+persist.bluetooth.leaudio.notify.idle.during.call=true
+persist.bluetooth.leaudio_offload.disabled=false
+ro.bluetooth.leaudio_offload.supported=true
+
+# Charger
+ro.charger.enable_suspend=1
+
+# Display
+sys.brightness.disable_gamma_conversion=true
+
+# DPM
+persist.vendor.dpm.feature=11
+
+# GPS
+persist.backup.ntpServer=0.pool.ntp.org
+
+# IMS
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+ro.qcom.ims.use_moto_vt_ext=true
+persist.vendor.vonr_setting_support=1
+
+# QVA
+ro.vendor.qti.va_aosp.support=1
+
+# Radio
+telephony.lteOnCdmaDevice=1
+
+# Media
+media.recorder.show_manufacturer_and_model=true
+
+# Sensors
+persist.vendor.sensors.enable.mag_filter=true
+
+# Wifi Display
+persist.debug.wfd.enable=1
+
+# NFC
+persist.nfc_cfg.config_file_name=libnfc-nci-st.conf

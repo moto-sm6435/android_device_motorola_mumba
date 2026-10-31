@@ -4,3 +4,11 @@ genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-05/c42d000.qcom,
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-05/c42d000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:torch_1/brightness          u:object_r:sysfs_torch:s0
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-05/c42d000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:torch_1/max_brightness      u:object_r:sysfs_torch:s0
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-05/c42d000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:switch_2/brightness         u:object_r:sysfs_torch:s0
+
+# Wakeup
+genfscon sysfs /devices/platform/soc/990000.i2c/i2c-0/0-005d/wakeup                                                                                                             u:object_r:sysfs_wakeup:s0
+
+# GPU Clock
+genfscon sysfs /class/kgsl/kgsl-3d0/max_gpuclk                                u:object_r:vendor_sysfs_kgsl_max_gpuclk:s0
+genfscon sysfs /devices/platform/soc/3d00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk u:object_r:vendor_sysfs_kgsl_max_gpuclk:s0
+genfscon sysfs /devices/platform/soc/5900000.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk u:object_r:vendor_sysfs_kgsl_max_gpuclk:s0

@@ -5,7 +5,6 @@
 
 DEVICE_PATH := device/motorola/mumba
 
-BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
@@ -47,6 +46,9 @@ TARGET_PROVIDES_LIBAR_PAL := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := parrot
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/configs/bluetooth/include
 
 # Display
 TARGET_SCREEN_DENSITY := 390
@@ -150,36 +152,58 @@ $(foreach p, $(call to-upper, $(BOARD_MOT_DP_GROUP_PARTITION_LIST)), \
     $(eval BOARD_$(p)IMAGE_FILE_SYSTEM_TYPE := ext4) \
     $(eval TARGET_COPY_OUT_$(p) := $(call to-lower, $(p))))
 
+BOARD_PRODUCTIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := -1
+BOARD_SYSTEM_EXTIMAGE_EXTFS_INODE_COUNT := -1
+
+BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 268435456
+BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 134217728
+BOARD_PRODUCTIMAGE_PARTITION_RESERVED_SIZE := 134217728
+BOARD_SYSTEM_EXTIMAGE_PARTITION_RESERVED_SIZE := 134217728
+BOARD_VENDOR_DLKMIMAGE_PARTITION_RESERVED_SIZE := 73400320
+
+BOARD_EROFS_COMPRESS_HINTS := $(DEVICE_PATH)/configs/erofs_compress_hints.txt
+BOARD_SYSTEMIMAGE_EROFS_COMPRESS_HINTS := $(DEVICE_PATH)/configs/erofs_compress_hints.txt
+BOARD_SYSTEM_EXTIMAGE_EROFS_COMPRESS_HINTS := $(DEVICE_PATH)/configs/erofs_compress_hints.txt
+BOARD_VENDORIMAGE_EROFS_COMPRESS_HINTS := $(DEVICE_PATH)/configs/erofs_compress_hints.txt
+BOARD_PRODUCTIMAGE_EROFS_COMPRESS_HINTS := $(DEVICE_PATH)/configs/erofs_compress_hints.txt
+BOARD_ODMIMAGE_EROFS_COMPRESS_HINTS := $(DEVICE_PATH)/configs/erofs_compress_hints.txt
+
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := parrot
 
 # Security
-BOOT_SECURITY_PATCH := 2026-08-01
+BOOT_SECURITY_PATCH := 2026-07-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /vendor/firmware_mnt:/firmware \
+    /vendor/bt_firmware:/bt_firmware \
+    /vendor/dsp:/dsp
+
 # Properties
-TARGET_ODM_PROP += $(DEVICE_PATH)/configs/props/odm.prop
-TARGET_PRODUCT_PROP += $(DEVICE_PATH)/configs/props/product.prop
-TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/configs/props/system_ext.prop
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/configs/props/system.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/configs/props/vendor.prop
+TARGET_ODM_PROP += $(DEVICE_PATH)/properties/odm.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/properties/product.prop
+TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/properties/system_ext.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/properties/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Manifest
 ODM_MANIFEST_SKUS += b d dn dne n ne
-ODM_MANIFEST_B_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_b.xml $(DEVICE_PATH)/configs/vintf/manifest_parrot_ss.xml
-ODM_MANIFEST_D_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_d.xml
-ODM_MANIFEST_DN_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_dn.xml
-ODM_MANIFEST_DNE_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_dne.xml
-ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_n.xml
-ODM_MANIFEST_NE_FILES := $(DEVICE_PATH)/configs/vintf/sku/manifest_ne.xml
+ODM_MANIFEST_B_FILES := $(DEVICE_PATH)/vintf/sku/manifest_b.xml $(DEVICE_PATH)/vintf/manifest_parrot_ss.xml
+ODM_MANIFEST_D_FILES := $(DEVICE_PATH)/vintf/sku/manifest_d.xml
+ODM_MANIFEST_DN_FILES := $(DEVICE_PATH)/vintf/sku/manifest_dn.xml
+ODM_MANIFEST_DNE_FILES := $(DEVICE_PATH)/vintf/sku/manifest_dne.xml
+ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/vintf/sku/manifest_n.xml
+ODM_MANIFEST_NE_FILES := $(DEVICE_PATH)/vintf/sku/manifest_ne.xml
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
@@ -208,7 +232,7 @@ endif
 
 BOARD_AVB_ROLLBACK_INDEX := 22
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 22
-BOARD_AVB_VBMETA_SYSTEM := system system_ext product pvmfw
+BOARD_AVB_VBMETA_SYSTEM := system system_ext product
 BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := $(AVB_CUSTOM_ALGORITHM)
 BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := $(AVB_CUSTOM_KEY_PATH)
 BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
@@ -234,6 +258,3 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 # Include the proprietary files BoardConfig.
 include vendor/motorola/mumba/BoardConfigVendor.mk
 -include vendor/motorola/mumba-motcamera/BoardConfigVendor.mk
-
-# Dolby
-include hardware/dolby/BoardConfig.mk

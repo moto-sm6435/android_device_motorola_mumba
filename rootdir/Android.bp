@@ -1,0 +1,81 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "fstab.qcom",
+    src: "etc/fstab.qcom",
+    vendor: true,
+    vendor_ramdisk_available: true,
+}
+
+prebuilt_etc {
+    name: "fstab.qcom.zram",
+    src: "etc/fstab.qcom.zram",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.qcom.recovery.rc",
+    src: "etc/init.qcom.recovery.rc",
+    sub_dir: "init",
+    recovery: true,
+}
+
+prebuilt_etc {
+    name: "ueventd.qcom.rc",
+    filename: "ueventd.rc",
+    src: "etc/ueventd.qcom.rc",
+    soc_specific: true,
+}
+
+
+prebuilt_etc {
+    name: "ueventd-odm.rc",
+    filename: "ueventd.rc",
+    src: "etc/ueventd-odm.rc",
+    device_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.qcom.rc",
+    src: "etc/init.qcom.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.target.rc",
+    src: "etc/init.target.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.vendor.st21nfc.rc",                                           
+    src: "etc/init.vendor.st21nfc.rc",  
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
+prebuilt_etc {
+    name: "init.mmi.rc",
+    src: "etc/init.mmi.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
+prebuilt_etc {                                                                                       
+    name: "init.mmi.overlay.rc",
+    src: "etc/init.mmi.overlay.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}
+
+prebuilt_etc {                                                                                       
+    name: "init.mmi.chipset.rc",
+    src: "etc/init.mmi.chipset.rc",
+    sub_dir: "init/hw",
+    soc_specific: true,
+}

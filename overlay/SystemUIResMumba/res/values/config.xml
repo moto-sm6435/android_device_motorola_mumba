@@ -34,7 +34,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <bool name="doze_display_state_supported">false</bool>
     
     <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
-    <integer name="config_screenRecorderMaxFramerate">60</integer>
+    <integer name="config_screenRecorderMaxFramerate">120</integer>
 
     <!-- A path similar to frameworks/base/core/res/res/values/config.xml
       config_mainBuiltInDisplayCutout that describes a path larger than the exact path of a outer
@@ -62,9 +62,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <bool name="config_statusBarBurnInProtection">true</bool>
     <integer name="config_shift_interval">60</integer>
 
-    <!-- Preferred refresh rate at keyguard, if supported by the display -->
-    <integer name="config_keyguardRefreshRate">60</integer>
-    
     <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
      vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>
@@ -73,4 +70,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
          Leave 1 if you have mA, put 1000 if you have µA -->
     <integer name="config_currentInfoDivider" translatable="false">1</integer>
     
+    <!-- Preferred refresh rate at keyguard, if supported by the display. Overrides
+         keyguardMaxRefreshRate. -->
+    <integer name="config_keyguardRefreshRate">120</integer>
+
 </resources>
