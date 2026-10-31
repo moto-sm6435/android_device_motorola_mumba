@@ -67,7 +67,7 @@ PRODUCT_PACKAGES += \
     libalsautilsv2.vendor \
     libaudioaidlcommon.vendor \
     libmediautils_vendor.vendor \
-    libmemunreachable.vendor
+    libmemunreachable.vendor \
     libaudioutils_shim
 
 AUDIO_HAL_DIR := hardware/qcom-caf/sm8450-6.6/audio/primary-hal
