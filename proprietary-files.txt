@@ -1318,6 +1318,7 @@ system_ext/etc/init/imsvtdaemon.rc
 system_ext/etc/seccomp_policy/imsvtdaemon.policy
 system_ext/framework/vendor.qti.ImsVtService-java.jar
 system_ext/lib64/vendor.qti.ImsVtService-ndk.so
+system_ext/lib64/libSurfaceUtil_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libSurfaceUtil_jni.so
 
 # RIL - UIM
 product/app/uimgbaservice/uimgbaservice.apk
